@@ -164,7 +164,7 @@ Require Import Fiat.Common.Frame.
 
 Inductive hetero {A : Type} {B : A -> Type} : list A -> Type :=
 | hnil : hetero []
-| hcons x xs : hetero xs -> B x -> hetero (x :: xs).
+| hcons x xs : hetero (B := B) xs -> B x -> hetero (x :: xs).
 
 Ltac under_fDom :=
   match goal with
